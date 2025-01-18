@@ -39,7 +39,7 @@ const ImageSequenceHeader: FC = () => {
 
       const imageSrcs: string[] = Array.from(
         { length: 60 },
-        (_, i) => `/images/bottle/pragma100${i + 1 < 10 ? `0${i + 1}` : i + 1}.png`,
+        (_, i) => `/images/s/pragma100${i + 1 < 10 ? `0${i + 1}` : i + 1}.png`,
       )
 
       const images = await loadImagesAndDrawFirstFrame({

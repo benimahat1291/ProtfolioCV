@@ -25,15 +25,15 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP)
 // https://gsap.com/docs/v3/Plugins/ScrollToPlugin/
 
 export enum SectionId {
-  Welcome = 'Animate Responsibly',
   About = 'About',
-  Services = 'Services',
-  Portfolio = 'Portfolio',
+  Skills = 'Skills',
+  Experince = "Experience",
+  Portfolio = 'Projects',
   Contact = 'Contact',
 }
 
 const HomeNav: FC = () => {
-  const [activeSection, setActiveSection] = useState<SectionId>(SectionId.Welcome)
+  const [activeSection, setActiveSection] = useState<SectionId>(SectionId.About)
 
   useGSAP(
     () => {
@@ -75,7 +75,7 @@ const HomeNav: FC = () => {
     { dependencies: [activeSection] },
   )
 
-  const indicatorHeight = 12
+  const indicatorHeight = 40
 
   useGSAP(() => {
     // Update scroll progress indicator
@@ -97,18 +97,18 @@ const HomeNav: FC = () => {
   }
 
   return (
-    <nav className="fixed left-4 top-4 z-50 gap-4 sm:left-6 sm:top-16">
+    <nav className="fixed left-4 top-10 z-50 gap-4 sm:left-6 sm:top-[50px] bg-black p-10   shadow-teal">
       {/* Scroll bar */}
       <div id="scroll-bar" className="absolute h-20 w-1 bg-white/20 sm:h-full">
         <div id="scroll-indicator" className="absolute top-0 w-full bg-white" style={{ height: indicatorHeight }} />
       </div>
       {/* Links */}
-      <div className="ml-4 flex flex-col gap-4 py-4 text-sm text-white">
+      <div className="ml-4 flex flex-col gap-4 py-4 text-lg font-bold text-gray">
         {Object.values(SectionId).map((id) => (
           <a
             key={id}
             data-section-id={id}
-            className={'nav-link hidden cursor-pointer opacity-20 sm:block'}
+            className={'nav-link hidden cursor-pointer opacity-30 sm:block'}
             onClick={() => onLinkClick(id)}>
             {id}
           </a>

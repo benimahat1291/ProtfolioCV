@@ -34,7 +34,7 @@ void main() {
   // TODO: Explain the variable types (bool, float, int, vec2, vec3, vec4)
 
 
-  // TODO: Explain uv coordinates - vec2(x,y) value between 0 and 1 based on the texture pixel (texel) position
+  // TODO: Explain uv coordinates - vec2(x,y) valuse between 0 and 1 based on the texture pixel (texel) position
   // TODO: Create a gradient based on the uv coordinate
   // gl_FragColor = vec4(vUv.x, vUv.y, vUv.x, 1.0);
 
@@ -63,7 +63,7 @@ void main() {
 
   vec2 uv = vUv;
   uv.y -= uScrollOffset;
-  uv.x += uTime * 0.01;
+  uv.x += uTime * 0.001;
 
   // TODO: Setup glsify to import a noise function
   // TODO: Play with noise to create a more organic effect

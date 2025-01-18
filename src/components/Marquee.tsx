@@ -86,7 +86,7 @@ const TestimonialsMarquee: FC<Props> = ({ isReversed = false, className }) => {
 
   return (
     <div
-      className={twMerge('max-w-full select-none overflow-hidden', className)}
+      className={twMerge('max-w-full select-none overflow-hidden  z-10', className)}
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
       style={{

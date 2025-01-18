@@ -9,12 +9,18 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      white: '#F6F6F6',
+
+      charcoal: "#264653",
+      persian: "#289D8f",
+      yellow: "#E9C46A",
+      orange: "#F4A261",
+      red: "#E76F51",
+      white: '#E0FBFC',
       green: '#37FFA8',
-      cyan: '#37F3FF',
-      'light-grey': '#C7C4CC',
-      'off-black': '#1E1B23',
-      black: '#0A090C',
+      teal: "#00ADB5",
+      gray: "#EEEEEE",
+      almostBlack: "#393E46",
+      black: '#222831',
       transparent: 'transparent',
     },
     extend: {
