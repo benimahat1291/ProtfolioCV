@@ -8,7 +8,7 @@ import BackdropPlane from '@/components/threejs/backdropPlane/BackdropPlane'
 
 type Props = {}
 
-const BackgroundCanvas: FC<Props> = ({}) => {
+const BackgroundCanvas: FC<Props> = ({ }) => {
   return (
     <Canvas gl={{ alpha: false, antialias: false }} className="!fixed inset-0">
       <OrthographicCamera makeDefault={true} position={[0, 0, 5]} />

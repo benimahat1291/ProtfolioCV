@@ -78,7 +78,15 @@ const Cursor: FC = () => {
 
   return (
     <div ref={pointer} className="pointer-events-none absolute flex items-center justify-center">
-      <div id="pointer-ring" className="size-5 rounded-full border border-white" />
+      <div
+        id="pointer-ring"
+        className="w-[250vw] h-[250vh] rounded-full shadow-inner shadow-transparent shadow-inner-2xl"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 255, 255, 0.05) 1%,  transparent 100%)',
+          mixBlendMode: 'difference',
+          pointerEvents: 'none',
+        }}
+      />
       <div id="pointer-label" className="absolute size-10 text-center text-4xl opacity-0">
         {label}
       </div>

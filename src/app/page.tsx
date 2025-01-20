@@ -12,97 +12,38 @@ import SideMenu from '@/components/SideMenu'
 import BackgroundCanvas from '@/components/threejs/BackgroundCanvas'
 
 export default function HomePage() {
-  const [isModalShowing, setIsModalShowing] = useState(false)
-  const [isSideMenuShowing, setIsSideMenuShowing] = useState(false)
+    const [isModalShowing, setIsModalShowing] = useState(false)
+    const [isSideMenuShowing, setIsSideMenuShowing] = useState(false)
 
-  return (
-    <>
-      {/* <BackgroundCanvas /> */}
+    return (
+        <>
+            {/* <BackgroundCanvas /> */}
 
-      <main className="w-full bg-black text-black font-sans">
-        <nav className="fixed left-6 top-6 z-50 text-gray font-roboto text-2xl">
-          <div className='flex'>
+            <main className="w-full pl-20 bg-[#01161e]  text-white font-sans flex">
+                <div className='flex-1 '>
+                    <div className="flex flex-col align-center sticky  top-20 left-0  ">
+                        <div className="flex items-end space-x-2 text-5xl mr-10 mb-4">
+                            <span className="text-teal font-bold mr-0">B<span className="text-gray font-bold">ENI</span></span>
+                            <span className="text-red font-bold">M<span className="text-gray font-bold">AHAT</span></span>
+                        </div>
 
-          </div>
-        </nav>
-        <HomeNav />
-        <section id={SectionId.About} className="nav-section  h-[100vh] grid grid-cols-12 grid-rows-12 items-center">
+                        <span className='text-xl'>Full Stack Engineer</span>
+                        <p className='max-w-[350px] mt-4 font-thin mb-10'>From front-end finesse to back-end brilliance, I build the web from top to bottom</p>
+                        <HomeNav />
+                    </div>
 
-          <div className='bg-teal col-start-3 z-10 col-span-3s row-start-2 row-span-12 w-full h-full '>
+                </div>
 
-          </div>
-          {/* Left Section */}
-          <div className="flex flex-col justify-start items-center col-start-3 col-span-8 p-10 row-start-2  row-span-10 h-full ">
-            <div className="flex align-center justify-center mt-20">
-              <div className="flex items-end space-x-2 text-8xl mr-10 mb-4">
-                <span className="text-red font-bold">M</span>
-                <span className="text-gray font-bold">AHAT</span>
-                <span className="text-teal font-bold">W</span>
-                <span className="text-gray font-bold">ORKS</span>
-              </div>
-              {/* <div className='flex min-w-[200px] mb-3'>
-                <img src="/images/M_LLC_teal.png" className="w-10 mr-4 filter sepia"></img>
-                <img src="/images/W_LLC_teal.png" className="w-10 filter grayscale "></img>
-              </div> */}
-            </div>
+                <div className='flex-1 mt-20 '>
+                    <section id={SectionId.About} className="nav-section h-[700px]">About</section>
+                    <section id={SectionId.Experience} className="nav-section h-[700px]">Experience</section>
+                    <section id={SectionId.Skills} className="nav-section h-[700px]">Skills</section>
+                    <section id={SectionId.Projects} className="nav-section h-[700px]">Projects</section>
+                    <section id={SectionId.Contact} className="nav-section h-[700px]">Contact</section>
 
+                </div>
 
-          </div>
-
-
-          <div className=" w-full p-12 text-2xl bg-red  row-start-6 col-start-4 col-span-8 text-gray mt-4">
-            Hi, I’m Beni Mahat, a software developer with 4+ years of experience crafting user-friendly web applications. I love turning caffeine into clean code and big ideas into scalable solutions. Skilled in JavaScript, React, and Node.js, I’m always up for a tech challenge. Let’s connect: LinkedIn.
-          </div>
-
-          {/* <div>
-              <button className='bg-orange font-bold text-black rounded px-4 py-2 mt-10 w-[200px]'>
-                LinkedIn
-              </button>
-              <button className='bg-orange ml-4 font-bold text-black rounded px-4 py-2 mt-4 w-[200px]'>
-                Contact Me
-              </button>
-            </div> */}
-
-          <div className="relative flex justify-center items-center col-start-8 col-span-4 row-start-9 row-span-3 ">
-            <img src="/images/profilephoto.png" className="w-[600px] h-auto" alt="Profile" />
-          </div>
-        </section >
-
-
-        <section id={SectionId.Skills} className="nav-section grid-rows-12 h-[100vh] w-full grid ">
-          <div className='flex'>
-
-            <div className='h-[300px] w-[50%] bg-red z-10'>
-
-            </div>
-            <div className='h-[300px] w-[50%] bg-teal z-10'>
-
-            </div>
-          </div>
-          <TestimonialsMarquee />
-          <TestimonialsMarquee isReversed className="mt-8" />
-
-        </section>
-
-        <section id={SectionId.Experince} className="nav-section h-[100vh] w-full "></section>
-        <section id={SectionId.Portfolio} className="nav-section h-[100vh] w-full "></section>
-        <section id={SectionId.Contact} className="nav-section h-[100vh] w-full "></section>
-
-        <section
-          className="nav-section relative flex  w-full flex-col items-center justify-center gap-8">
-          <Button variant="filled" hoverEmoji="💚" onClick={() => setIsModalShowing(true)}>
-            Open Modal
-          </Button>
-
-          <Button variant="filled" onClick={() => setIsSideMenuShowing(true)}>
-            Open Menu
-          </Button>
-        </section>
-
-        <Modal isShowing={isModalShowing} onClose={() => setIsModalShowing(false)} />
-
-        <SideMenu isShowing={isSideMenuShowing} onClose={() => setIsSideMenuShowing(false)} />
-      </main >
-    </>
-  )
+            </main >
+        </>
+    )
 }

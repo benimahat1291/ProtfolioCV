@@ -26,9 +26,9 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP)
 
 export enum SectionId {
   About = 'About',
+  Experience = "Experience",
   Skills = 'Skills',
-  Experince = "Experience",
-  Portfolio = 'Projects',
+  Projects = 'Projects',
   Contact = 'Contact',
 }
 
@@ -42,7 +42,7 @@ const HomeNav: FC = () => {
         sections.forEach((section, index) => {
           ScrollTrigger.create({
             trigger: section,
-            start: 'top center',
+            start: 'top center  ',
             end: 'bottom center',
             onEnter: () => {
               setActiveSection(section.id as SectionId)
@@ -55,27 +55,45 @@ const HomeNav: FC = () => {
       }
       addScrollTriggersToSections()
     },
-    { dependencies: [] },
+    { dependencies: [activeSection] },
   )
 
   useGSAP(
     () => {
       // Toggle link opacity based on the active section
       const matchMedia = gsap.matchMedia()
-
       matchMedia.add('(min-width: 640px)', () => {
         gsap.to('.nav-link', {
           opacity: (_, element: HTMLElement) => {
             const isActive = element.dataset.sectionId === activeSection
             return isActive ? 1 : 0.3
           },
+          // x: (_, element: HTMLElement) => {
+          //   const isActive = element.dataset.sectionId === activeSection
+          //   return isActive ? 20 : 0 // Shift 20px to the right if active
+          // },
+        })
+
+        gsap.to('.nav-link-bar', {
+          opacity: (_, element: HTMLElement) => {
+            const isActive = element.dataset.sectionId === activeSection
+            return isActive ? 1 : 0.3
+          },
+          duration: 0.3,
+        })
+        gsap.to('.nav-link-bar', {
+          width: (_, element: HTMLElement) => {
+            const isActive = element.dataset.sectionId === activeSection
+            return isActive ? "64px" : "32px"
+          },
+          duration: 0.3,
         })
       })
     },
     { dependencies: [activeSection] },
   )
 
-  const indicatorHeight = 40
+  const indicatorHeight = 0
 
   useGSAP(() => {
     // Update scroll progress indicator
@@ -96,22 +114,26 @@ const HomeNav: FC = () => {
     gsap.to(window, { scrollTo: { y: `#${id}`, offsetY: 0 } })
   }
 
+  console.log("active section", activeSection)
+
   return (
-    <nav className="fixed left-4 top-10 z-50 gap-4 sm:left-6 sm:top-[50px] bg-black p-10   shadow-teal">
-      {/* Scroll bar */}
-      <div id="scroll-bar" className="absolute h-20 w-1 bg-white/20 sm:h-full">
-        <div id="scroll-indicator" className="absolute top-0 w-full bg-white" style={{ height: indicatorHeight }} />
-      </div>
+    <nav className="z-50   sm:top-[50px]   shadow-teal">
+
       {/* Links */}
       <div className="ml-4 flex flex-col gap-4 py-4 text-lg font-bold text-gray">
         {Object.values(SectionId).map((id) => (
-          <a
-            key={id}
-            data-section-id={id}
-            className={'nav-link hidden cursor-pointer opacity-30 sm:block'}
-            onClick={() => onLinkClick(id)}>
-            {id}
-          </a>
+          <div key={id} className='flex items-center'>
+            <span className='nav-link-bar h-[2px] min-w-[32px] bg-white mr-2 opacity-30 '
+              data-section-id={id}></span>
+            <a
+
+              data-section-id={id}
+              className={'nav-link hidden cursor-pointer text-base opacity-30 sm:block'}
+              onClick={() => onLinkClick(id)}>
+
+              {id}
+            </a>
+          </div>
         ))}
       </div>
     </nav>
